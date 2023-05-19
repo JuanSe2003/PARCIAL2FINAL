@@ -1,0 +1,29 @@
+<div *ngIf="selected">
+  <app-RecetaDetail [RecetaDetail]="selectedBook"></app-RecetaDetail>
+ </div>
+ 
+ <hr />
+ 
+ <div class="container">
+  <div class="row">
+    <div *ngFor="let book of recetas" class="col mb-2">
+      <div class="card p-2" style="width: 20rem; height: 33rem">
+        <caption>
+          Seasons average:
+          <span>{{ getRecetasAverage() }}</span>
+        </caption>
+        <img
+          class="card-img-top"
+          src="{{ book.imagen }}"
+          alt="{{ book.nombre }}"
+          (click)="onSelected(book)"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ book.nombre }}</h5>
+          <p class="card-text">[{{ book.dificultad }}]</p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
